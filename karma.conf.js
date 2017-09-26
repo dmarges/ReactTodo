@@ -14,9 +14,10 @@ module.exports = function (config) {
       'app/tests/**/*.test.jsx': ['webpack', 'sourcemap']
     },
     reporters: ['mocha'],
+    logLevel: config.LOG_DEBUG,
     client: {
       mocha: {
-        timeout: '5000'
+        timeout: '30000'
       }
     },
     webpack: webpackConfig,

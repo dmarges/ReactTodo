@@ -12,10 +12,10 @@ describe('TodoSearch', () => {
   });
 
   it('should dispatch SET_SEARCH_TEXT on input change', () => {
-    var searchText = 'Dog';
+    var searchText = 'dog';
     var action = {
       type: 'SET_SEARCH_TEXT',
-      searchText
+      searchText: searchText
     };
     var spy = expect.createSpy();
     var todoSearch = TestUtils.renderIntoDocument(<TodoSearch dispatch={spy}/>);
