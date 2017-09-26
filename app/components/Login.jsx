@@ -23,7 +23,6 @@ export var Login = React.createClass({
             </div>
           </div>
         </div>
-        <Link to="/todos">Your Todos</Link>
       </div>
     );
   }
