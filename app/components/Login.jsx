@@ -5,10 +5,10 @@ import * as Redux from 'react-redux';
 import * as actions from 'actions';
 
 export var Login = React.createClass({
-  onLogin: function() {
+  onLogin: function(event) {
     var {dispatch} = this.props;
-
-    dispatch(actions.startLogin());
+    var provider = event.target.value;
+    dispatch(actions.startLogin(provider));
   },
   render: function() {
     return (
@@ -19,7 +19,10 @@ export var Login = React.createClass({
             <div className="callout callout-auth">
               <h3>Login</h3>
               <p>Login with Github account below</p>
-              <button className="button" onClick={this.onLogin}>Login with Github</button>
+              <button className="button" value="github" onClick={this.onLogin}>Login with Github</button>
+
+              <p>Login with Facebook account below</p>
+              <button className="button" value="facebook" onClick={this.onLogin}>Login with Facebook</button>
             </div>
           </div>
         </div>

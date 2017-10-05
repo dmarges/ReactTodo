@@ -1,5 +1,5 @@
 import moment from 'moment';
-import firebase, {firebaseRef, githubProvider} from 'firebaseAPI';
+import firebase, {firebaseRef, githubProvider, facebookProvider} from 'firebaseAPI';
 
 export var setSearchText = (searchText) => {
   return {
@@ -93,9 +93,11 @@ export var startToggleTodo = (id, completed) => {
   }
 };
 
-export var startLogin = () => {
+export var startLogin = (provider) => {
+  var authProvider = (provider === 'facebook') ? facebookProvider : githubProvider;
+
   return (dispatch, getState) => {
-    return firebase.auth().signInWithPopup(githubProvider).then((result) => {
+    return firebase.auth().signInWithPopup(authProvider).then((result) => {
       console.log('Auth worked!', result);
     }, (error) => {
       console.log('Unable to auth', error);
